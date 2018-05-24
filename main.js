@@ -4,11 +4,18 @@
 		el: '#app',
 		data:{
 			newItem: '',
-			todos:[
-				'task1',
-				'task2',
-				'task3'
-			]
+			todos:[{
+				title: 'task 1',
+				isDone: false
+			},
+			{
+				title: 'task 2',
+				isDone: false
+			},
+			{
+				title: 'task 3',
+				isDone: true
+			}]
 		},
 		methods: {
 			// == TODOを追加する
@@ -19,7 +26,11 @@
 			// }
 			// ->ディレクティブにpreventつけちゃう
 			addItem: function(){
-				this.todos.push(this.newItem);
+				var item = {
+					title: this.newItem,
+					isDone: false
+				};
+				this.todos.push(item); //pushするのはここのitem
 				this.newItem = ''; //そのままだと値が残っちゃうからここで空文字にする
 			},
 			// // == TODO削除
