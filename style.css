@@ -24,7 +24,12 @@ body {
 	border-bottom: 1px solid #CCC;
 }
 #app li {
+	list-style-type: none;
 	margin: 1em 0;
+}
+#app .is-done {
+	text-decoration: line-through;
+	color: #ccc;
 }
 #app input[type="text"] {
 	margin-top: 20px;
