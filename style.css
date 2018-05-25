@@ -27,7 +27,7 @@ body {
 	list-style-type: none;
 	margin: 1em 0;
 }
-#app .is-done {
+#app .done {
 	text-decoration: line-through;
 	color: #ccc;
 }
