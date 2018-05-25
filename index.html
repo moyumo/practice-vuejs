@@ -9,13 +9,25 @@
 	<body>
 		<div id="app" class="container">
 			<h1>My TODOS</h1>
-			<ul>
+			<!-- <ul>
 				<li v-for='(todo, index) in todos'>
 					<input type="checkbox" v-model="todo.isDone">
 					<span :class="{done: todo.isDone}">{{ todo.title }}</span>
-					<!-- .is-doneだと  [Vue warn]: Error compiling template になる -->
+					.is-doneだと  [Vue warn]: Error compiling template になる
 					<span @click="deleteItem(index)" class="command">[x]</span>
 				</li>
+				<li v-show="!todos.length">NOTHING!</li>
+			</ul> -->
+			<ul v-if="todos.length" >
+				<!--v-ifはv-forより先に実行されるので同時に使うとforが回らず空になる。なのでulにつかう-->
+				<li v-for='(todo, index) in todos'>
+					<input type="checkbox" v-model="todo.isDone">
+					<span :class="{done: todo.isDone}">{{ todo.title }}</span>
+					<span @click="deleteItem(index)" class="command">[x]</span>
+				</li>
+			</ul>
+			<ul v-else>
+				<li>NOTHING!</li>
 			</ul>
 			<form @submit.prevent="addItem">
 				<input type="text" v-model="newItem">
