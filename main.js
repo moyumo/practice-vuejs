@@ -39,14 +39,28 @@
 				if(confirm('OK?')){
 					this.todos.splice(index,1); //index番目から1個削除
 				}
+			},
+			// == 完了したTODOを一気に削除
+			purge: function() {
+				if(!confirm('delete finished?')){
+					return;
+				}
+				// this.todos = this.todos.filter(function(todo){
+				// 	//完了してないものを返す
+				// 	return !todo.isDone;
+				// });
+				this.todos = this.remaining;
 			}
 		},
 		computed: {
 			remaining: function(){
-				var items = this.todos.filter(function(todo){
+				// var items = this.todos.filter(function(todo){
+				// 	return !todo.isDone;
+				// });
+				// return items.length;
+				return this.todos.filter(function(todo){
 					return !todo.isDone;
 				});
-				return items.length;
 			}
 		}
 	});
