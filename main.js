@@ -4,19 +4,19 @@
 		el: '#app',
 		data:{
 			newItem: '',
-			todos: []
-			// todos:[{
-			// 	title: 'task 1',
-			// 	isDone: false
-			// },
-			// {
-			// 	title: 'task 2',
-			// 	isDone: false
-			// },
-			// {
-			// 	title: 'task 3',
-			// 	isDone: true
-			// }]
+
+			todos:[{
+				title: 'task 1',
+				isDone: false
+			},
+			{
+				title: 'task 2',
+				isDone: false
+			},
+			{
+				title: 'task 3',
+				isDone: true
+			}]
 		},
 		methods: {
 			// == TODOを追加する
@@ -40,7 +40,14 @@
 					this.todos.splice(index,1); //index番目から1個削除
 				}
 			}
-
+		},
+		computed: {
+			remaining: function(){
+				var items = this.todos.filter(function(todo){
+					return !todo.isDone;
+				});
+				return items.length;
+			}
 		}
 	});
 })();

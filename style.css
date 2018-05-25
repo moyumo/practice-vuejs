@@ -31,6 +31,11 @@ body {
 	text-decoration: line-through;
 	color: #ccc;
 }
+#app .info {
+	font-weight: normal;
+	font-size: 1rem;
+	color: #999;
+}
 #app input[type="text"] {
 	margin-top: 20px;
 }
