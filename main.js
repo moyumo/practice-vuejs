@@ -18,6 +18,20 @@
 				isDone: true
 			}]
 		},
+		watch: {
+			// ↓ 配列自体に変更があったら見てくれるけど、中身の変更はみてくれない
+			// todos: function(){
+			// 	localStorage.setItem('todos', JSON.stringify(this.todos));
+			// 	alert("Data saved!");
+			// }
+			todos: {
+				handler: function(){
+					localStorage.setItem('todos', JSON.stringify(this.todos));
+					//alert("Data saved!");
+				},
+				deep: true
+			}
+		},
 		methods: {
 			// == TODOを追加する
 			// # submitしても画面遷移させない
@@ -45,19 +59,11 @@
 				if(!confirm('delete finished?')){
 					return;
 				}
-				// this.todos = this.todos.filter(function(todo){
-				// 	//完了してないものを返す
-				// 	return !todo.isDone;
-				// });
 				this.todos = this.remaining;
 			}
 		},
 		computed: {
 			remaining: function(){
-				// var items = this.todos.filter(function(todo){
-				// 	return !todo.isDone;
-				// });
-				// return items.length;
 				return this.todos.filter(function(todo){
 					return !todo.isDone;
 				});
