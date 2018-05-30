@@ -9,38 +9,3 @@ body {
 	background-color: #F2F2F2;
 	font-family: verdana, sans-serif;
 }
-
-
-.container {
-	background-color: #FFF;
-	padding:40px;
-	border-radius: 0.5rem;
-	width: 80%;
-	margin: 0 auto;
-}
-#app h1 {
-	margin-top: 0;
-	padding-bottom: 0.5em;
-	border-bottom: 1px solid #CCC;
-}
-#app li {
-	list-style-type: none;
-	margin: 1em 0;
-}
-#app .done {
-	text-decoration: line-through;
-	color: #ccc;
-}
-#app .info {
-	font-weight: normal;
-	font-size: 1rem;
-	color: #999;
-}
-#app input[type="text"] {
-	margin-top: 20px;
-}
-.command {
-	font-size: 0.75em;
-	cursor: pointer;
-	color: #08C;
-}

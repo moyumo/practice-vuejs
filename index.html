@@ -7,27 +7,11 @@
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-		<div id="app" class="container">
-			<button @click="purge">Purge</button>
-			<h1>My TODOS <span class="info">({{ remaining.length }}/{{todos.length}})</span></h1>
-			<ul>
-				<li v-for='(todo, index) in todos'>
-					<input type="checkbox" v-model="todo.isDone">
-					<span :class="{done: todo.isDone}">{{ todo.title }}</span>
-					<!-- .is-doneだと  [Vue warn]: Error compiling template になる -->
-					<span @click="deleteItem(index)" class="command">[x]</span>
-				</li>
-				<li v-show="!todos.length">NOTHING!</li>
-			</ul>
-			<form @submit.prevent="addItem">
-				<input type="text" v-model="newItem">
-				<input type="submit" value="ADD">
-			</form>
+		<div id="app">
+			<like-component></like-component>
+			<like-component></like-component>
+			<like-component></like-component>
 		</div>
-		<!--
-			v-on -> @
-			v-bind -> :
-		-->
 
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 		<script src="main.js"></script><!-- ※IDより先に書くと動かないよ！ -->
