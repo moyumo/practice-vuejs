@@ -3,9 +3,7 @@
 	// Components
 
 	var likeComponent = Vue.extend({
-		//props: ['message'],//カスタム属性
 		props: {
-			//オブジェクト形式で、型や値を指定できる
 			message: {
 				type: String,
 				default: 'Like'
@@ -20,6 +18,7 @@
 		methods: {
 			countUp: function(){
 				this.count++;
+				this.$emit('increment');
 			}
 		}
 	});
@@ -27,6 +26,14 @@
 		el: '#app',
 		components : {
 			'like-component': likeComponent
+		},
+		data: {
+			total: 0
+		},
+		methods: {
+			incrementTotal: function(){
+				this.total++;
+			}
 		}
 	});
 
